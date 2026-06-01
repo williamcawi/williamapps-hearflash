@@ -12,14 +12,16 @@
     
     <style>
         :root {
-            --bg-color: #0B0F19;
-            --primary: #10B981;
-            --primary-hover: #059669;
-            --text-main: #F3F4F6;
-            --text-muted: #9CA3AF;
-            --glass-bg: rgba(17, 24, 39, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glow-color: rgba(16, 185, 129, 0.2);
+            --bg-color: #F8F9FA;
+            --surface-white: #FFFFFF;
+            --primary-orange: #E16E03;
+            --primary-orange-light: #FCEFE5;
+            --forest-green: #0A2E1A;
+            --emerald-black: #020805;
+            --text-muted: #556B5C;
+            --border-radius: 16px;
+            --shadow-subtle: 0 8px 30px rgba(2, 8, 5, 0.05);
+            --shadow-premium: 0 20px 40px rgba(2, 8, 5, 0.08);
         }
 
         * {
@@ -31,78 +33,64 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--emerald-black);
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        /* Gradient background glows */
-        .glow-1 {
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, var(--glow-color) 0%, rgba(11, 15, 25, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .glow-2 {
-            position: absolute;
-            bottom: 10%;
-            right: -10%;
-            width: 40vw;
-            height: 40vw;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(11, 15, 25, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
         }
 
         header {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--text-main);
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             text-decoration: none;
         }
 
-        .logo span {
-            color: var(--primary);
-            text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        .logo-img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--forest-green);
+        }
+
+        .logo-text span {
+            color: var(--primary-orange);
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--primary-orange);
         }
 
         /* Hero Section */
         .hero {
             max-width: 1200px;
-            margin: 4rem auto 6rem auto;
+            margin: 2rem auto 5rem auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 4rem;
             align-items: center;
         }
@@ -112,21 +100,20 @@
             font-size: 3.5rem;
             font-weight: 800;
             line-height: 1.15;
+            color: var(--forest-green);
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
 
         .hero-text h1 span {
-            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-orange);
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            max-width: 600px;
+            max-width: 580px;
         }
 
         .cta-buttons {
@@ -139,40 +126,42 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            background-color: var(--primary);
-            color: #0F172A;
+            background-color: var(--primary-orange);
+            color: #FFFFFF;
             padding: 1rem 2rem;
-            border-radius: 9999px;
+            border-radius: var(--border-radius);
             font-weight: 700;
             font-size: 1.1rem;
             text-decoration: none;
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 6px 18px rgba(225, 110, 3, 0.25);
             transition: all 0.3s;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-hover);
+            background-color: #C66002;
             transform: translateY(-2px);
-            box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 10px 22px rgba(225, 110, 3, 0.35);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
-            background-color: transparent;
-            color: var(--text-main);
+            background-color: var(--surface-white);
+            color: var(--forest-green);
             padding: 1rem 2rem;
-            border-radius: 9999px;
-            font-weight: 600;
+            border-radius: var(--border-radius);
+            font-weight: 700;
             font-size: 1.1rem;
             text-decoration: none;
-            border: 2px solid var(--glass-border);
+            border: 2px solid rgba(10, 46, 26, 0.08);
+            box-shadow: var(--shadow-subtle);
             transition: all 0.3s;
         }
 
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--primary);
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            transform: translateY(-2px);
         }
 
         /* Mockup */
@@ -182,119 +171,24 @@
             position: relative;
         }
 
-        .phone-mockup {
-            width: 280px;
-            height: 560px;
-            background: #1E293B;
-            border-radius: 40px;
-            border: 8px solid #334155;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(16, 185, 129, 0.15);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem 1.5rem;
-            position: relative;
+        .screenshot-img {
+            max-width: 310px;
+            width: 100%;
+            height: auto;
+            border-radius: 36px;
+            box-shadow: var(--shadow-premium);
+            border: 8px solid var(--forest-green);
+            transition: transform 0.5s ease;
         }
 
-        .phone-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 25px;
-            background: #334155;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            z-index: 10;
-        }
-
-        .mock-ui-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-        .mock-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(16, 185, 129, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .mock-bar {
-            width: 80px;
-            height: 8px;
-            background: #475569;
-            border-radius: 4px;
-        }
-
-        .mock-card {
-            background: #0F172A;
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            margin: auto 0;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .mock-word {
-            font-size: 1.6rem;
-            font-weight: 700;
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        .mock-translation {
-            font-size: 0.95rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .mock-btn {
-            background: var(--primary);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #0F172A;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-        }
-
-        .mock-nav {
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 1rem;
-        }
-
-        .mock-dot {
-            width: 10px;
-            height: 10px;
-            background: #475569;
-            border-radius: 50%;
-        }
-
-        .mock-dot.active {
-            background: var(--primary);
+        .screenshot-img:hover {
+            transform: scale(1.03) rotate(1deg);
         }
 
         /* Features Section */
         .features {
             max-width: 1200px;
-            margin: 6rem auto;
+            margin: 5rem auto;
             padding: 0 1.5rem;
         }
 
@@ -307,6 +201,7 @@
             font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
+            color: var(--forest-green);
             margin-bottom: 1rem;
         }
 
@@ -324,37 +219,40 @@
         }
 
         .feature-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            background: var(--surface-white);
+            border: 1px solid rgba(10, 46, 26, 0.05);
+            border-radius: var(--border-radius);
             padding: 2.5rem;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-subtle);
             transition: all 0.3s;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(16, 185, 129, 0.3);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(225, 110, 3, 0.2);
+            box-shadow: var(--shadow-premium);
         }
 
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 16px;
+        .feature-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-orange-light);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            color: var(--primary);
-            font-size: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 1.7rem;
         }
 
         .feature-card h3 {
             font-family: 'Outfit', sans-serif;
             font-size: 1.35rem;
             font-weight: 700;
+            color: var(--forest-green);
             margin-bottom: 0.75rem;
         }
 
@@ -365,42 +263,57 @@
 
         /* Footer */
         footer {
-            border-top: 1px solid var(--glass-border);
-            padding: 4rem 1.5rem 3rem 1.5rem;
+            border-top: 1px solid rgba(10, 46, 26, 0.05);
+            padding: 3rem 1.5rem;
             text-align: center;
-            background-color: rgba(7, 10, 17, 0.9);
+            background-color: var(--surface-white);
         }
 
         .footer-logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             text-decoration: none;
             margin-bottom: 1.5rem;
-            display: inline-block;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
         }
 
         .footer-logo span {
-            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--forest-green);
+        }
+
+        .footer-logo span em {
+            font-style: normal;
+            color: var(--primary-orange);
         }
 
         .footer-nav {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             list-style: none;
         }
 
         .footer-nav a {
             color: var(--text-muted);
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
         .footer-nav a:hover {
-            color: var(--primary);
+            color: var(--primary-orange);
         }
 
         .copyright {
@@ -414,7 +327,7 @@
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 3rem;
-                margin-top: 2rem;
+                margin-top: 1rem;
             }
 
             .hero-text h1 {
@@ -437,11 +350,12 @@
     </style>
 </head>
 <body>
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
 
     <header>
-        <a href="#" class="logo">Hear<span>Flash</span></a>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="HearFlash Logo" class="logo-img">
+            <span class="logo-text">Hear<span>Flash</span></span>
+        </a>
         <nav class="nav-links">
             <a href="privacy_policy.html">Privacy Policy</a>
         </nav>
@@ -450,10 +364,10 @@
     <section class="hero">
         <div class="hero-text">
             <h1>Master Languages by <span>Active Listening</span></h1>
-            <p>Train your ears, expand your vocabulary, and speak fluently. HearFlash uses smart Spaced Repetition (SRS) and offline machine learning to help you understand native speakers naturally.</p>
+            <p>Train your ears, expand your vocabulary, and speak fluently. HearFlash combines the Spaced Repetition System (SRS) with offline translations to help you understand native speakers naturally.</p>
             <div class="cta-buttons">
                 <a href="https://play.google.com/store/apps/details?id=com.williamapps.hearflash" class="btn-primary" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="fill: #0F172A;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="fill: #FFFFFF;">
                         <path d="M5 3.25C4.25 3.25 3.5 3.75 3.25 4.5L12 13.25L20.75 4.5C20.5 3.75 19.75 3.25 19 3.25H5Z"/>
                         <path d="M3 6V18C3 18.25 3.05 18.5 3.15 18.75L11.5 13.75L3 6Z"/>
                         <path d="M12.5 13.75L20.85 18.75C20.95 18.5 21 18.25 21 18V6L12.5 13.75Z"/>
@@ -465,64 +379,54 @@
             </div>
         </div>
         <div class="hero-mockup">
-            <div class="phone-mockup">
-                <div class="mock-ui-header">
-                    <div class="mock-icon">⚡</div>
-                    <div class="mock-bar"></div>
-                    <div class="mock-icon">⚙️</div>
-                </div>
-                <div class="mock-card">
-                    <div class="mock-word">the lightning flash</div>
-                    <div class="mock-translation">o relâmpago</div>
-                    <div class="mock-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                    </div>
-                </div>
-                <div class="mock-nav">
-                    <div class="mock-dot active"></div>
-                    <div class="mock-dot"></div>
-                    <div class="mock-dot"></div>
-                </div>
-            </div>
+            <img src="screenshot.png" alt="HearFlash App Study Screen" class="screenshot-img">
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="section-title">
-            <h2>Designed for Effortless Auditory Study</h2>
-            <p>Skip dry grammar rules and dive directly into listening and memorization.</p>
+            <h2>Designed for Auditory Success</h2>
+            <p>Skip dry grammar exercises. Train your brain directly on standard pronunciation and vocabulary.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🎧</div>
+                <div class="feature-icon-wrapper">
+                    <span class="feature-icon">🎧</span>
+                </div>
                 <h3>Active Listening Method</h3>
-                <p>Train your auditory paths directly with audio recordings. Learn standard vocabulary and pronunciation naturally.</p>
+                <p>Listen directly to high-quality recordings, control pronunciation speed, and learn standard accents naturally.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🔁</div>
+                <div class="feature-icon-wrapper">
+                    <span class="feature-icon">🔁</span>
+                </div>
                 <h3>Spaced Repetition (SRS)</h3>
-                <p>A smart system schedules vocabulary reviews at perfect mathematical intervals to cement them in your long-term memory.</p>
+                <p>An intelligent scheduling system schedules word review cycles based on your difficulty to lock them into your memory.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📶</div>
+                <div class="feature-icon-wrapper">
+                    <span class="feature-icon">📶</span>
+                </div>
                 <h3>100% Offline & Local</h3>
-                <p>Your logs stay on your device. Offline translation powered by Google ML Kit works perfectly without internet access.</p>
+                <p>Your learning logs reside only on your physical device. Translations are processed completely locally via Google ML Kit.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">☁️</div>
+                <div class="feature-icon-wrapper">
+                    <span class="feature-icon">☁️</span>
+                </div>
                 <h3>Private Cloud Sync</h3>
-                <p>Keep control over your records. Easily backup and sync your learning progress directly to your own Google Drive.</p>
+                <p>Maintain complete ownership of your data. Securely backup and restore your study history using your own private Google Drive.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <a href="#" class="footer-logo">Hear<span>Flash</span></a>
+        <a href="#" class="footer-logo">
+            <img src="logo.png" alt="HearFlash Footer Logo">
+            <span>Hear<em>Flash</em></span>
+        </a>
         <ul class="footer-nav">
             <li><a href="privacy_policy.html">Privacy Policy</a></li>
-            <li><a href="app-ads.txt">app-ads.txt</a></li>
         </ul>
         <p class="copyright">&copy; 2026 Williamapps. All rights reserved.</p>
     </footer>
