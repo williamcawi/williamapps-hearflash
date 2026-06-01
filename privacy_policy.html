@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - HearFlash</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0B0F19;
-            --primary: #10B981;
-            --text-main: #F3F4F6;
-            --text-muted: #9CA3AF;
-            --glass-bg: rgba(17, 24, 39, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-color: #F8F9FA;
+            --surface-white: #FFFFFF;
+            --primary-orange: #E16E03;
+            --forest-green: #0A2E1A;
+            --emerald-black: #020805;
+            --text-muted: #556B5C;
+            --border-radius: 16px;
+            --shadow-premium: 0 20px 40px rgba(2, 8, 5, 0.05);
         }
 
         * {
@@ -27,54 +30,54 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--emerald-black);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 3rem 2.5rem;
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            background: var(--surface-white);
+            border: 1px solid rgba(10, 46, 26, 0.05);
+            padding: 3.5rem 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-premium);
         }
 
         h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
+            color: var(--forest-green);
             margin-bottom: 0.5rem;
-            color: var(--text-main);
         }
 
         .date {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 2rem;
+            color: var(--primary-orange);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
             font-size: 0.95rem;
         }
 
         h2 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-top: 2rem;
+            color: var(--forest-green);
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 2px solid rgba(10, 46, 26, 0.04);
             padding-bottom: 0.5rem;
         }
 
         h3 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-top: 1.25rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-top: 1.5rem;
             margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.9);
         }
 
         p {
@@ -85,20 +88,25 @@
 
         ul {
             margin-left: 1.5rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             color: var(--text-muted);
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        strong {
+            color: var(--forest-green);
         }
 
         code {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(225, 110, 3, 0.08);
             padding: 0.2rem 0.4rem;
             border-radius: 4px;
             font-family: monospace;
-            color: var(--primary);
+            color: var(--primary-orange);
+            font-weight: 600;
         }
 
         .btn-back {
@@ -107,13 +115,21 @@
             gap: 0.5rem;
             color: var(--text-muted);
             text-decoration: none;
-            margin-bottom: 2rem;
-            font-weight: 500;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
             transition: color 0.3s;
         }
 
         .btn-back:hover {
-            color: var(--primary);
+            color: var(--primary-orange);
+        }
+
+        .btn-back svg {
+            transition: transform 0.3s;
+        }
+
+        .btn-back:hover svg {
+            transform: translateX(-4px);
         }
 
         @media (max-width: 600px) {
@@ -129,7 +145,7 @@
 <body>
     <div class="container">
         <a href="index.html" class="btn-back">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
